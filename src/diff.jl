@@ -139,7 +139,7 @@ function _occursin_info(x, expr, fail = true)
     else
         op = operation(expr)
 
-        if op isa Integral
+        if op isa DefiniteIntegral
             # check if x occurs in limits
             domain = op.domain
             lower, upper = value.(DomainSets.endpoints(domain.domain))
@@ -296,7 +296,7 @@ function executediff(D, arg, simplify=false; throw_no_derivative=false)
                 return executediff(op, inner, simplify; throw_no_derivative)
             end
         end
-    elseif isa(op, Integral)
+    elseif isa(op, DefiniteIntegral)
         if isa(op.domain.domain, AbstractInterval)
             domain = op.domain.domain
             a, b = value.(DomainSets.endpoints(domain))

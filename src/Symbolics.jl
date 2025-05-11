@@ -129,7 +129,7 @@ include("difference.jl")
 export infimum, supremum
 include("domains.jl")
 
-export Integral
+export Integral, expand_integrals, is_integral
 include("integral.jl")
 
 include("array-lib.jl")
